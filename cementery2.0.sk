@@ -1,0 +1,96 @@
+#Author: Mikael
+#https://github.com/Michallesss
+#Mikael#0168
+
+#Cementary2.0
+#JohnTheServer Copyrights(R)
+#Version: 1.3 BETA
+
+
+
+options:
+    x.kordy.cmentarzu: 1615.5
+    y.kordy.cmentarzu: 46
+    z.kordy.cmentarzu: -92.5
+    swiat.cmentarzu: world
+    a.widok: 135
+    b.widok: 10
+
+
+# Prefix każdej wiadomości
+options:
+    prefix: &4[&cC&fM&cE&f&cN&fT&cA&fR&cZ&4]
+
+
+# Czas w którym gracz będzie w szpialu
+options:
+    czas: 60 #seconds
+    doing: false #tego nie tykać
+
+
+# Miejsce gdzie gracz będzie się respił (już po wyjściu ze szpitala)
+options:
+    x.kordy.spawna: 1577.5
+    y.kordy.spawna: 71
+    z.kordy.spawna: 79.5
+    swiat.spawna: world
+
+
+
+# ===Events===:
+on death of player:
+    set {@doing} to true
+    set {_odliczanie.do.wyjscia} to {@czas}
+    send "{@prefix} &7>> &cGracz %victim% wylądował/a na cmentarzu" to all players
+    force victim to respawn
+
+    while {_odliczanie.do.wyjscia} >= 0:
+        if {@doing} = true:
+            send title "&4&lZostało %{_odliczanie.do.wyjscia}% sekund, do odrodzenia!" to victim
+            remove 1 from {_odliczanie.do.wyjscia}
+            wait 1 second
+        else:
+            stop loop
+
+
+on quit:
+    if {@doing} = true:
+        #
+    else:
+        #
+
+
+on join:
+    if {@doing} = true:
+        #
+    else:
+        #    
+
+
+
+# ===Commands===:
+command /cemetery <player>:
+    permission: cemetery.player
+    trigger:
+        if {@doing} = false:
+            kill arg-1
+            wait 1 tick
+            make player execute command "/zginodrazu"
+        else:
+            send title "&c&lJesteś już na cmentarzu." to player
+
+
+command /scemetery <player>:
+    permission: scemetery.player
+    trigger:
+        #chuj tu komendy
+        if {doing} = true:
+            stop sound "music_disc.13" for player
+            remove Slowness from the player
+            remove Blindness from the player
+            remove Invisibility from the player
+            teleport player to location({@x.kordy.spawna}, {@y.kordy.spawna}, {@z.kordy.spawna}, {swiat.spawna})
+            set {_odliczanie.do.wyjscia} to 0
+            set {doing} to false
+        else:
+            send title "&c&lNie jesteś obecnie na cmentarzu." to player
