@@ -1,0 +1,136 @@
+#Author: Mikael
+#https://github.com/Michallesss
+#Mikael#0168
+
+#SongsPlayer
+#JohnTheServer Copyrights(R)
+#Version: 1.0 Pre
+
+
+
+options:
+    dead_cooldown: 10 #seconds
+    loop_times: 9999 #how many times
+
+options:
+    one: "minecraft:music_disc.pigstep" #minecraft disc name
+    one_time: 30 #seconds
+    #====
+    two: "minecraft:music_disc.11" #minecraft disc name
+    two_time: 30 #seconds
+    #====
+    three: "minecraft:music_disc.2" #minecraft disc name
+    three_time: 30 #seconds
+    #====
+    four: "minecraft:music_disc.3" #minecraft disc name
+    four_time: 30 #seconds
+    #====
+    five: "minecraft:music_disc.4" #minecraft disc name
+    five_time: 30 #seconds
+    #====
+    six: "minecraft:music_disc.5" #minecraft disc name
+    six_time: 30 #seconds
+    #====
+    seven: "minecraft:music_disc.6" #minecraft disc name
+    seven_time: 30 #seconds
+    #====
+    eight: "minecraft:music_disc.7"#minecraft disc name
+    eight_time: 30 #seconds
+    #====
+    nine: "minecraft:music_disc.8"#minecraft disc name
+    nine_time: 30 #seconds
+    #====
+    ten: "minecraft:music_disc.9" #minecraft disc name
+    ten_time: 30 #seconds
+    #====
+    eleven: "minecraft:music_disc.10"#minecraft disc name
+    eleven_time: 30 #seconds
+    #====
+
+
+
+#===Events===:
+on join:
+    loop {@loop_times} times:
+        play sound {@one} with volume 100 to the player
+        wait {@one_time} second
+        stop sound {@one} for the player
+        play sound {@two} with volume 100 to the player
+        wait {@two_time} second
+        stop sound {@two} for the player
+        play sound {@three} with volume 100 to the player
+        wait {@three_time} second
+        stop sound {@three} for the player
+        play sound {@four} with volume 100 to the player
+        wait {@four_time} second
+        stop sound {@four} for the player
+        play sound {@five} with volume 100 to the player
+        wait {@five_time} second
+        stop sound {@five} for the player
+        play sound {@six} with volume 100 to the player
+        wait {@six_time} second
+        stop sound {@six} for the player
+        play sound {@seven} with volume 100 to the player
+        wait {@seven_time} second
+        stop sound {@seven} for the player
+        play sound {@eight} with volume 100 to the player
+        wait {@eight_time} second
+        stop sound {@eight} for the player
+        play sound {@nine} with volume 100 to the player
+        wait {@nine_time} second
+        stop sound {@nine} for the player
+        play sound {@ten} with volume 100 to the player
+        wait {@ten_time} second
+        stop sound {@ten} for the player
+        play sound {@eleven} with volume 100 to the player
+        wait {@eleven_time} second
+        stop sound {@eleven} for the player
+
+
+on quit:
+    stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the player
+
+
+on death of player:
+    stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the victim
+    force victim to respawn
+    wait {@dead_cooldown} second
+    loop {@loop_times} times:
+        play sound {@one} with volume 100 to the victim
+        wait {@one_time} second
+        stop sound {@one} for the victim
+        play sound {@two} with volume 100 to the victim
+        wait {@two_time} second
+        stop sound {@two} for the victim
+        play sound {@three} with volume 100 to the victim
+        wait {@three_time} second
+        stop sound {@three} for the victim
+        play sound {@four} with volume 100 to the victim
+        wait {@four_time} second
+        stop sound {@four} for the victim
+        play sound {@five} with volume 100 to the victim
+        wait {@five_time} second
+        stop sound {@five} for the victim
+        play sound {@six} with volume 100 to the victim
+        wait {@six_time} second
+        stop sound {@six} for the victim
+        play sound {@seven} with volume 100 to the victim
+        wait {@seven_time} second
+        stop sound {@seven} for the victim
+        play sound {@eight} with volume 100 to the victim
+        wait {@eight_time} second
+        stop sound {@eight} for the victim
+        play sound {@nine} with volume 100 to the victim
+        wait {@nine_time} second
+        stop sound {@nine} for the victim
+        play sound {@ten} with volume 100 to the victim
+        wait {@ten_time} second
+        stop sound {@ten} for the victim
+        play sound {@eleven} with volume 100 to the victim
+        wait {@eleven_time} second
+        stop sound {@eleven} for the victim
+
+
+
+#===Functions===:
+    #...
