@@ -1,0 +1,59 @@
+#Author: Mikael
+#https://github.com/Michallesss
+#Mikael#0168
+
+#knockout
+#JohnTheServer Copyrights(R)
+#Vesion: 0.1
+
+#U need GSit.
+
+
+
+options:
+    knockout_time: 30 #seconds
+
+
+
+#===Events===:
+on damage of player:
+    if health of victim <= 0.5:
+        set {is_knockouted} to true
+        execute victim command "/lay"
+        apply Blindness 10 to the victim for {knockout_time}
+        set {counting} to {knockout_time}
+        while {counting} >= 0:
+            wait 1 second
+            remove 1 from {counting}
+            send title "Nokaut!" with subtitle "%{counting}%" to victim
+            if {counting} <= 1:
+                wait 1 second
+                kill victim
+                set {is_knockouted} to false
+
+on join:
+    set {is_knockouted} to false
+    while player is online:
+        if {is_knockouted} = true:
+        execute player command "/lay"
+        wait 1 tick
+    wait 5 tick
+
+on quit:
+    if {is_knockouted} = true:
+        kill the player
+
+on block damaging:
+    if {is_knockouted} = true:
+        cancel event
+
+on right click:
+    if {is_knockouted} = true:
+        cancel event
+
+command /knockout <player>:
+    permission: knockout.player
+    trigger:
+        while health of player < 0.5:
+            damage player by 0.5 hearts
+            #nie ma już errorów tylko przeanalizuj głowny kod czy na pewno dziala
