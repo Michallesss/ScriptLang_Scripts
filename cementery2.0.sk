@@ -17,11 +17,6 @@ options:
     b.widok: 10
 
 
-# Prefix każdej wiadomości
-options:
-    prefix: &4[&cC&fM&cE&f&cN&fT&cA&fR&cZ&4]
-
-
 # Czas w którym gracz będzie w szpialu
 options:
     czas: 60 #seconds
@@ -41,7 +36,7 @@ options:
 on death of player:
     set {@doing} to true
     set {_odliczanie.do.wyjscia} to {@czas}
-    send "{@prefix} &7>> &cGracz %victim% wylądował/a na cmentarzu" to all players
+    send "&cGracz %victim% wylądował/a na cmentarzu" to all players
     force victim to respawn
 
     while {_odliczanie.do.wyjscia} >= 0:
