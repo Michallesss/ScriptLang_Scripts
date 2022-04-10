@@ -4,13 +4,16 @@
 
 #SongsPlayer
 #JohnTheServer Copyrights(R)
-#Version: 1.0 Pre
+#Version: 1.0
 
 
 
 options:
-    dead_cooldown: 10 #seconds
+    dead_cooldown: 5 #seconds
+    join_cooldown: 5 #seconds
     loop_times: 9999 #how many times
+    is_playing: false #is song playing default
+    song: 1 #do not fucking touch this
 
 options:
     one: "minecraft:music_disc.pigstep" #minecraft disc name
@@ -51,86 +54,74 @@ options:
 
 #===Events===:
 on join:
-    loop {@loop_times} times:
-        play sound {@one} with volume 100 to the player
-        wait {@one_time} second
-        stop sound {@one} for the player
-        play sound {@two} with volume 100 to the player
-        wait {@two_time} second
-        stop sound {@two} for the player
-        play sound {@three} with volume 100 to the player
-        wait {@three_time} second
-        stop sound {@three} for the player
-        play sound {@four} with volume 100 to the player
-        wait {@four_time} second
-        stop sound {@four} for the player
-        play sound {@five} with volume 100 to the player
-        wait {@five_time} second
-        stop sound {@five} for the player
-        play sound {@six} with volume 100 to the player
-        wait {@six_time} second
-        stop sound {@six} for the player
-        play sound {@seven} with volume 100 to the player
-        wait {@seven_time} second
-        stop sound {@seven} for the player
-        play sound {@eight} with volume 100 to the player
-        wait {@eight_time} second
-        stop sound {@eight} for the player
-        play sound {@nine} with volume 100 to the player
-        wait {@nine_time} second
-        stop sound {@nine} for the player
-        play sound {@ten} with volume 100 to the player
-        wait {@ten_time} second
-        stop sound {@ten} for the player
-        play sound {@eleven} with volume 100 to the player
-        wait {@eleven_time} second
-        stop sound {@eleven} for the player
+    wait {@join_cooldown} second
+    play(player)
 
 
 on quit:
     stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the player
+    set {is_playing} to false
 
 
 on death of player:
     stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the victim
+    set {is_playing} to false
     force victim to respawn
     wait {@dead_cooldown} second
-    loop {@loop_times} times:
-        play sound {@one} with volume 100 to the victim
-        wait {@one_time} second
-        stop sound {@one} for the victim
-        play sound {@two} with volume 100 to the victim
-        wait {@two_time} second
-        stop sound {@two} for the victim
-        play sound {@three} with volume 100 to the victim
-        wait {@three_time} second
-        stop sound {@three} for the victim
-        play sound {@four} with volume 100 to the victim
-        wait {@four_time} second
-        stop sound {@four} for the victim
-        play sound {@five} with volume 100 to the victim
-        wait {@five_time} second
-        stop sound {@five} for the victim
-        play sound {@six} with volume 100 to the victim
-        wait {@six_time} second
-        stop sound {@six} for the victim
-        play sound {@seven} with volume 100 to the victim
-        wait {@seven_time} second
-        stop sound {@seven} for the victim
-        play sound {@eight} with volume 100 to the victim
-        wait {@eight_time} second
-        stop sound {@eight} for the victim
-        play sound {@nine} with volume 100 to the victim
-        wait {@nine_time} second
-        stop sound {@nine} for the victim
-        play sound {@ten} with volume 100 to the victim
-        wait {@ten_time} second
-        stop sound {@ten} for the victim
-        play sound {@eleven} with volume 100 to the victim
-        wait {@eleven_time} second
-        stop sound {@eleven} for the victim
+    play(victim)
 
 
 
 #===Functions===:
-    #...
+function play(p: player):
+    set {is_playing} to true
+    loop {@loop_times} times:
+        set {song} to random integer between 1 and 11 
+        if {is_playing} = true:
+            if {@song} = 1:
+                execute console command "/playsound %{@one}% record %{_p}% ~ ~ ~ 100"
+                wait {@one_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 2:
+                execute console command "/playsound %{@dwo}% record %{_p}% ~ ~ ~ 100"
+                wait {@two_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 3:
+                execute console command "/playsound %{@three}% record %{_p}% ~ ~ ~ 100"
+                wait {@three_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 4:
+                execute console command "/playsound %{@four}% record %{_p}% ~ ~ ~ 100"
+                wait {@four_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 5:
+                execute console command "/playsound %{@five}% record %{_p}% ~ ~ ~ 100"
+                wait {@five_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 6:
+                execute console command "/playsound %{@six}% record %{_p}% ~ ~ ~ 100"
+                wait {@six_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 7:
+                execute console command "/playsound %{@seven}% record %{_p}% ~ ~ ~ 100"
+                wait {@seven_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 8:
+                execute console command "/playsound %{@eight}% record %{_p}% ~ ~ ~ 100"
+                wait {@eight_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 9:
+                execute console command "/playsound %{@nine}% record %{_p}% ~ ~ ~ 100"
+                wait {@nine_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 10:
+                execute console command "/playsound %{@ten}% record %{_p}% ~ ~ ~ 100"
+                wait {@ten_time} second
+                execute console command "/stopsound %{_p}% record"
+            else if {@song} = 11:
+                execute console command "/playsound %{@eleven}% record %{_p}% ~ ~ ~ 100"
+                wait {@eleven_time} second
+                execute console command "/stopsound %{_p}% record"
+        else:
+            stop loop
+    set {is_playing} to false
