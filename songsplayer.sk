@@ -4,7 +4,7 @@
 
 #SongsPlayer
 #JohnTheServer Copyrights(R)
-#Version: 1.02
+#Version: 1.03
 
 
 
@@ -80,48 +80,48 @@ function play(p: player):
         if {is_playing} = true:
             if {song} = 1:
                 execute console command "/playsound %{@one}% record %{_p}% ~ ~ ~ 100"
-                wait {@one_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@one_time} seconds
+                execute console command "/stopsound %{_p}% record %{@one}%"
             else if {song} = 2:
                 execute console command "/playsound %{@two}% record %{_p}% ~ ~ ~ 100"
-                wait {@two_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@two_time} seconds
+                execute console command "/stopsound %{_p}% record %{@two}%"
             else if {song} = 3:
                 execute console command "/playsound %{@three}% record %{_p}% ~ ~ ~ 100"
-                wait {@three_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@three_time} seconds
+                execute console command "/stopsound %{_p}% record %{@three}%"
             else if {song} = 4:
                 execute console command "/playsound %{@four}% record %{_p}% ~ ~ ~ 100"
-                wait {@four_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@four_time} seconds
+                execute console command "/stopsound %{_p}% record %{@four}%"
             else if {song} = 5:
                 execute console command "/playsound %{@five}% record %{_p}% ~ ~ ~ 100"
-                wait {@five_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@five_time} seconds
+                execute console command "/stopsound %{_p}% record %{@five}%"
             else if {song} = 6:
                 execute console command "/playsound %{@six}% record %{_p}% ~ ~ ~ 100"
-                wait {@six_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@six_time} seconds
+                execute console command "/stopsound %{_p}% record %{@six}%"
             else if {song} = 7:
                 execute console command "/playsound %{@seven}% record %{_p}% ~ ~ ~ 100"
-                wait {@seven_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@seven_time} seconds
+                execute console command "/stopsound %{_p}% record %{@seven}%"
             else if {song} = 8:
                 execute console command "/playsound %{@eight}% record %{_p}% ~ ~ ~ 100"
-                wait {@eight_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@eight_time} seconds
+                execute console command "/stopsound %{_p}% record %{@eight}%"
             else if {song} = 9:
                 execute console command "/playsound %{@nine}% record %{_p}% ~ ~ ~ 100"
-                wait {@nine_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@nine_time} seconds
+                execute console command "/stopsound %{_p}% record %{@nine}%"
             else if {song} = 10:
                 execute console command "/playsound %{@ten}% record %{_p}% ~ ~ ~ 100"
-                wait {@ten_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@ten_time} seconds
+                execute console command "/stopsound %{_p}% record %{@ten}%"
             else if {song} = 11:
                 execute console command "/playsound %{@eleven}% record %{_p}% ~ ~ ~ 100"
-                wait {@eleven_time} second
-                execute console command "/stopsound %{_p}% record"
+                wait {@eleven_time} seconds
+                execute console command "/stopsound %{_p}% record %{@eleven}%"
         else:
             stop loop
     set {is_playing} to false
