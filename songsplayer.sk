@@ -4,7 +4,7 @@
 
 #SongsPlayer
 #JohnTheServer Copyrights(R)
-#Version: 1.0
+#Version: 1.01
 
 
 
@@ -83,7 +83,7 @@ function play(p: player):
                 wait {@one_time} second
                 execute console command "/stopsound %{_p}% record"
             else if {@song} = 2:
-                execute console command "/playsound %{@dwo}% record %{_p}% ~ ~ ~ 100"
+                execute console command "/playsound %{@two}% record %{_p}% ~ ~ ~ 100"
                 wait {@two_time} second
                 execute console command "/stopsound %{_p}% record"
             else if {@song} = 3:
