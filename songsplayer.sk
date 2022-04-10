@@ -4,7 +4,7 @@
 
 #SongsPlayer
 #JohnTheServer Copyrights(R)
-#Version: 1.04
+#Version: 1.041
 
 
 
@@ -31,7 +31,7 @@ options:
     five: "minecraft:music_disc.far" #minecraft disc name
     five_time: 30 #seconds
     #====
-    six: "minecraft:music_disc.chrip" #minecraft disc name
+    six: "minecraft:music_disc.chirp" #minecraft disc name
     six_time: 30 #seconds
     #====
     seven: "minecraft:music_disc.cat" #minecraft disc name
