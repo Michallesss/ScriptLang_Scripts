@@ -4,7 +4,7 @@
 
 #SongsPlayer
 #JohnTheServer Copyrights(R)
-#Version: 1.03
+#Version: 1.04
 
 
 
@@ -19,34 +19,34 @@ options:
     one: "minecraft:music_disc.pigstep" #minecraft disc name
     one_time: 30 #seconds
     #====
-    two: "minecraft:music_disc.11" #minecraft disc name
+    two: "minecraft:music_disc.otherside" #minecraft disc name
     two_time: 30 #seconds
     #====
-    three: "minecraft:music_disc.2" #minecraft disc name
+    three: "minecraft:music_disc.mellohi" #minecraft disc name
     three_time: 30 #seconds
     #====
-    four: "minecraft:music_disc.3" #minecraft disc name
+    four: "minecraft:music_disc.mall" #minecraft disc name
     four_time: 30 #seconds
     #====
-    five: "minecraft:music_disc.4" #minecraft disc name
+    five: "minecraft:music_disc.far" #minecraft disc name
     five_time: 30 #seconds
     #====
-    six: "minecraft:music_disc.5" #minecraft disc name
+    six: "minecraft:music_disc.chrip" #minecraft disc name
     six_time: 30 #seconds
     #====
-    seven: "minecraft:music_disc.6" #minecraft disc name
+    seven: "minecraft:music_disc.cat" #minecraft disc name
     seven_time: 30 #seconds
     #====
-    eight: "minecraft:music_disc.7"#minecraft disc name
+    eight: "minecraft:music_disc.blocks"#minecraft disc name
     eight_time: 30 #seconds
     #====
-    nine: "minecraft:music_disc.8"#minecraft disc name
+    nine: "minecraft:music_disc.stal"#minecraft disc name
     nine_time: 30 #seconds
     #====
-    ten: "minecraft:music_disc.9" #minecraft disc name
+    ten: "minecraft:music_disc.ward" #minecraft disc name
     ten_time: 30 #seconds
     #====
-    eleven: "minecraft:music_disc.10"#minecraft disc name
+    eleven: "minecraft:music_disc.wait"#minecraft disc name
     eleven_time: 30 #seconds
     #====
 
@@ -54,7 +54,7 @@ options:
 
 #===Events===:
 on join:
-    wait {@join_cooldown} second
+    wait {@join_cooldown} seconds
     play(player)
 
 
@@ -67,7 +67,7 @@ on death of player:
     stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the victim
     set {is_playing} to false
     force victim to respawn
-    wait {@dead_cooldown} second
+    wait {@dead_cooldown} seconds
     play(victim)
 
 
