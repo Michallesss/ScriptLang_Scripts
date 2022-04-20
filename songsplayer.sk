@@ -4,50 +4,59 @@
 
 #SongsPlayer
 #JohnTheServer Copyrights(R)
-#Version: 1.041
+#Version: 1.5
 
 
 
 options:
-    dead_cooldown: 5 #seconds
+    dead_cooldown: 60 #seconds
     join_cooldown: 5 #seconds
-    loop_times: 9999 #how many times
+    looptimes: 9999 #how many times
     is_playing: false #is song playing default
     song: 1 #do not fucking touch this
 
 options:
-    one: "minecraft:music_disc.pigstep" #minecraft disc name
-    one_time: 30 #seconds
+    one: "minecraft:music_disc.11" #minecraft disc name
+    onetime: 195 #seconds
     #====
-    two: "minecraft:music_disc.otherside" #minecraft disc name
-    two_time: 30 #seconds
+    two: "minecraft:music_disc.13" #minecraft disc name
+    twotime: 170 #seconds
     #====
-    three: "minecraft:music_disc.mellohi" #minecraft disc name
-    three_time: 30 #seconds
+    three: "minecraft:music_disc.blocks" #minecraft disc name
+    threetime: 315 #seconds
     #====
-    four: "minecraft:music_disc.mall" #minecraft disc name
-    four_time: 30 #seconds
+    four: "minecraft:music_disc.cat" #minecraft disc name
+    fourtime: 180 #seconds
     #====
-    five: "minecraft:music_disc.far" #minecraft disc name
-    five_time: 30 #seconds
+    five: "minecraft:music_disc.chirp" #minecraft disc name
+    fivetime: 215 #seconds
     #====
-    six: "minecraft:music_disc.chirp" #minecraft disc name
-    six_time: 30 #seconds
+    six: "minecraft:music_disc.far" #minecraft disc name
+    sixtime: 125 #seconds
     #====
-    seven: "minecraft:music_disc.cat" #minecraft disc name
-    seven_time: 30 #seconds
+    seven: "minecraft:music_disc.mall" #minecraft disc name
+    seventime: 175 #seconds
     #====
-    eight: "minecraft:music_disc.blocks"#minecraft disc name
-    eight_time: 30 #seconds
+    eight: "minecraft:music_disc.mellohi" #minecraft disc name
+    eighttime: 210 #seconds
     #====
-    nine: "minecraft:music_disc.stal"#minecraft disc name
-    nine_time: 30 #seconds
+    nine: "minecraft:music_disc.otherside" #minecraft disc name
+    ninetime: 220 #seconds
     #====
-    ten: "minecraft:music_disc.ward" #minecraft disc name
-    ten_time: 30 #seconds
+    ten: "minecraft:music_disc.pigstep" #minecraft disc name
+    tentime: 220 #seconds
     #====
-    eleven: "minecraft:music_disc.wait"#minecraft disc name
-    eleven_time: 30 #seconds
+    eleven: "minecraft:music_disc.stal" #minecraft disc name
+    eleventime: 265 #seconds
+    #====
+    twelve: "minecraft:music_disc.strad" #minecraft disc name
+    twelvetime: 130 #seconds
+    #====
+    tirtheen: "minecraft:music_disc.wait" #minecraft disc name
+    tirtheentime: 245 #seconds
+    #====
+    fourteen: "minecraft:music_disc.ward" #minecraft disc name
+    fourteentime: 315 #seconds
     #====
 
 
@@ -59,13 +68,14 @@ on join:
 
 
 on quit:
-    stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the player
     set {is_playing} to false
+    stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the player
+    
 
 
 on death of player:
-    stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the victim
     set {is_playing} to false
+    stop sounds {@one} and {@two} and {@three} and {@four} and {@five} and {@six} and {@seven} and {@eight} and {@nine} and {@ten} and {@eleven} for the victim
     force victim to respawn
     wait {@dead_cooldown} seconds
     play(victim)
@@ -75,53 +85,81 @@ on death of player:
 #===Functions===:
 function play(p: player):
     set {is_playing} to true
-    loop {@loop_times} times:
-        set {song} to random integer between 1 and 11 
-        if {is_playing} = true:
-            if {song} = 1:
+    loop {@looptimes} times:
+        set {song} to random integer between 1 and 14 
+        if {song} is 1:
+            if {is_playing} is true:
                 execute console command "/playsound %{@one}% record %{_p}% ~ ~ ~ 100"
-                wait {@one_time} seconds
+                wait {@onetime} seconds
                 execute console command "/stopsound %{_p}% record %{@one}%"
-            else if {song} = 2:
+        else if {song} is 2:
+            if {is_playing} is true:
                 execute console command "/playsound %{@two}% record %{_p}% ~ ~ ~ 100"
-                wait {@two_time} seconds
+                wait {@twotime} seconds
                 execute console command "/stopsound %{_p}% record %{@two}%"
-            else if {song} = 3:
+        else if {song} is 3:
+            if {is_playing} is true:
                 execute console command "/playsound %{@three}% record %{_p}% ~ ~ ~ 100"
-                wait {@three_time} seconds
+                wait {@threetime} seconds
                 execute console command "/stopsound %{_p}% record %{@three}%"
-            else if {song} = 4:
+        else if {song} is 4:
+            if {is_playing} is true:
                 execute console command "/playsound %{@four}% record %{_p}% ~ ~ ~ 100"
-                wait {@four_time} seconds
+                wait {@fourtime} seconds
                 execute console command "/stopsound %{_p}% record %{@four}%"
-            else if {song} = 5:
+        else if {song} is 5:
+            if {is_playing} is true:
                 execute console command "/playsound %{@five}% record %{_p}% ~ ~ ~ 100"
-                wait {@five_time} seconds
+                wait {@fivetime} seconds
                 execute console command "/stopsound %{_p}% record %{@five}%"
-            else if {song} = 6:
+        else if {song} is 6:
+            if {is_playing} is true:
                 execute console command "/playsound %{@six}% record %{_p}% ~ ~ ~ 100"
-                wait {@six_time} seconds
+                wait {@sixtime} seconds
                 execute console command "/stopsound %{_p}% record %{@six}%"
-            else if {song} = 7:
+        else if {song} is 7:
+            if {is_playing} is true:
                 execute console command "/playsound %{@seven}% record %{_p}% ~ ~ ~ 100"
-                wait {@seven_time} seconds
+                wait {@seventime} seconds
                 execute console command "/stopsound %{_p}% record %{@seven}%"
-            else if {song} = 8:
+        else if {song} is 8:
+            if {is_playing} is true:
                 execute console command "/playsound %{@eight}% record %{_p}% ~ ~ ~ 100"
-                wait {@eight_time} seconds
+                wait {@eighttime} seconds
                 execute console command "/stopsound %{_p}% record %{@eight}%"
-            else if {song} = 9:
+        else if {song} is 9:
+            if {is_playing} is true:
                 execute console command "/playsound %{@nine}% record %{_p}% ~ ~ ~ 100"
-                wait {@nine_time} seconds
+                wait {@ninetime} seconds
                 execute console command "/stopsound %{_p}% record %{@nine}%"
-            else if {song} = 10:
+        else if {song} is 10:
+            if {is_playing} is true:
                 execute console command "/playsound %{@ten}% record %{_p}% ~ ~ ~ 100"
-                wait {@ten_time} seconds
+                wait {@tentime} seconds
                 execute console command "/stopsound %{_p}% record %{@ten}%"
-            else if {song} = 11:
+        else if {song} is 11:
+            if {is_playing} is true:
                 execute console command "/playsound %{@eleven}% record %{_p}% ~ ~ ~ 100"
-                wait {@eleven_time} seconds
+                wait {@eleventime} seconds
                 execute console command "/stopsound %{_p}% record %{@eleven}%"
+        else if {song} is 12:
+            if {is_playing} is true:
+                execute console command "/playsound %{@twelve}% record %{_p}% ~ ~ ~ 100"
+                wait {@twelvetime} seconds
+                execute console command "/stopsound %{_p}% record %{@twelve}%"
+        else if {song} is 13:
+            if {is_playing} is true:
+                execute console command "/playsound %{@tirtheen}% record %{_p}% ~ ~ ~ 100"
+                wait {@tirtheentime} seconds
+                execute console command "/stopsound %{_p}% record %{@tirtheen}%"
+        else if {song} is 14:
+            if {is_playing} is true:
+                execute console command "/playsound %{@fourteen}% record %{_p}% ~ ~ ~ 100"
+                wait {@fourteentime} seconds
+                execute console command "/stopsound %{_p}% record %{@fourteen}%"
         else:
             stop loop
+            set {is_playing} to false
+            execute console command "/stopsound %{_p}% record"
     set {is_playing} to false
+    execute console command "/stopsound %{_p}% record"
